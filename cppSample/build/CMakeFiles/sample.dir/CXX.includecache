@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/near/work/jetsonNanoGPIO/cppSample/sample.cpp
+iostream
+-
+chrono
+-
+thread
+-
+signal.h
+-
+JetsonGPIO.h
+-
+
