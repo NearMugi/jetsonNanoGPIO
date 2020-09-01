@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/sampleSpi.dir/sampleSpi.cpp.o CMakeFiles/sampleSpi.dir/SPI.cpp.o  -o sampleSpi -lJetsonGPIO 

@@ -1,0 +1,3 @@
+/home/near/work/jetsonNanoGPIO/cppSample/SPI/build/CMakeFiles/rebuild_cache.dir
+/home/near/work/jetsonNanoGPIO/cppSample/SPI/build/CMakeFiles/sampleSpi.dir
+/home/near/work/jetsonNanoGPIO/cppSample/SPI/build/CMakeFiles/edit_cache.dir
