@@ -18,6 +18,8 @@ public:
     bool init ();
     bool init (const char *_device, int clockInHz);
     void quit ();
+    bool send(unsigned char* tx);
+    bool receive(unsigned char* rx);
     bool transfer(unsigned char* tx, unsigned char* rx);
 private:
     int fd;

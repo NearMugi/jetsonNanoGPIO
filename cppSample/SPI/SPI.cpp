@@ -65,6 +65,18 @@ void SPI::quit ()
     close(fd);
 }
 
+bool SPI::send(unsigned char* tx){
+    int l = sizeof(tx) / sizeof(tx[0]);
+    unsigned char tmpRx[l];
+    return transfer(tx, tmpRx);
+}
+
+bool SPI::receive(unsigned char* rx){
+    int l = sizeof(rx) / sizeof(rx[0]);
+    unsigned char tmpTx[l];
+    return transfer(tmpTx, rx);
+}
+
 bool SPI::transfer(unsigned char* tx, unsigned char* rx)
 {
     
@@ -78,7 +90,6 @@ bool SPI::transfer(unsigned char* tx, unsigned char* rx)
         .cs_change = 0,
     };
 
-    //  send this byte
     int ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
     if (ret < 0) {
         printf("error: cannot send spi message (%d)\n", ret);

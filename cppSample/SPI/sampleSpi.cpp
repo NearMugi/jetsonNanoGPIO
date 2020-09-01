@@ -59,15 +59,31 @@ int main(){
     SPI spi;
     if(!spi.init()) return 0;
 
+    char idx = 0;
+
     while(1){
         unsigned char tx[3] = {0x00, 0x27, 0x50};
         unsigned char rx[3] = {0x00, 0x00, 0x00};
+
+        cout << "\nSend->Receive(Same Time)" << endl;
         bool ret = spi.transfer(tx, rx);
+        if(ret){
+            printf("0x%02x, 0x%02x, 0x%02x", rx[0], rx[1], rx[2]);
+        }
+
+        tx[0] = idx; 
+        tx[1] = 0x28; 
+        tx[2] = 0xFF; 
+        cout << "\nSend->Receive" << endl;
+        ret = spi.send(tx);
+        ret = spi.receive(rx);
         if(ret){
             printf("0x%02x, 0x%02x, 0x%02x\n", rx[0], rx[1], rx[2]);
         }
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+        idx++;
 
  		// ESCを押すと終了		
 		if (isInterrupt(27)) break;
